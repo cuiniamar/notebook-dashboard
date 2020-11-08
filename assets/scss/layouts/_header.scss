@@ -1,0 +1,44 @@
+/* ============================================================================
+** Header Styles
+==============================================================================*/
+
+.header {
+    &__container {
+        background-color: $white;
+
+        @include desktopUp {
+            background-image: url('../images/sidebar-bg.png');
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-size: contain;
+            width: 300px;
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+        color: $text-grey;
+        font-weight: 500;
+        
+        @include desktopUp {
+            text-shadow: 1px 1px lighten($bg-grey, 10%);
+        }
+
+        span {
+            text-transform: capitalize;
+            color: $text-blue;
+        }
+    }
+
+    // a.active {
+    //     background-color: $bg-lgrey;
+    //     border-radius: 0 10px 10px 0;
+    // }
+
+    a {
+        &:hover {
+            background-color: $bg-lgrey;
+            border-radius: 0 10px 10px 0;
+        }
+    }
+}
