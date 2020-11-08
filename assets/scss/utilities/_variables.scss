@@ -1,0 +1,46 @@
+// ============================================================================
+// Variables
+// ============================================================================
+
+// ======================================
+// fonts
+// ======================================
+$font-primary: 'Roboto', sans-serif;
+
+
+// ======================================
+// Tailwind Breakpoints
+// ======================================
+$mobileUp: '(min-width: 640px)' !default;
+$tabletUp: '(min-width: 768px)' !default;
+$desktopUp: '(min-width: 1024px)' !default;
+$widescreenUp: '(min-width: 1280px)' !default;
+$widerscreenUp: '(min-width: 1440px)' !default;
+
+
+// ======================================
+// Colors
+// ======================================
+$white: #fff;
+$black: #000;
+// Primary Colors
+$color-1: #576D8C !default;
+$color-2: #68CABD !default;
+$color-3: #585959 !default;
+$color-4: #F2F3F7 !default;
+$color-5: #E4E4E4 !default;
+$color-6: #5B753D !default;
+$color-7: #9F9F9F !default;
+// Derived Colors
+$text-blue: $color-1;
+$text-teal: $color-2;
+$text-grey: $color-3;
+$text-lgrey: $color-4;
+$text-green: $color-6;
+$text-accent: $color-7;
+$bg-blue: $color-1;
+$bg-teal: $color-2;
+$bg-grey: $color-3;
+$bg-lgrey: $color-4;
+$icon-grey: $color-5;
+$icon-teal: $color-2;
