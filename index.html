@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook Dashboard</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header relative md:h-full md:min-h-screen">
+            <div class="md:flex flex-col md:flex-row md:min-h-screen md:w-64">
+                <div @click.away="open = false" class="header__container flex flex-col w-full flex-shrink-0" x-data="{ open: false }">
+                    <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
+                        <h1 class="header__title text-lg md:mt-10">Notebook<span>Manager</span></h1>
+                        <button class="rounded-lg md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block pr-4 pb-4 md:pb-0 md:overflow-y-auto">
+                        <div class="header__user text-center py-8">
+                            <div class="avatar mx-auto mb-3">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="font-light">
+                                Welcome, <span class="text-blue font-medium">Jane Doe!</span>
+                            </div>
+                        </div>
+                        <p class="text-xs uppercase pr-4 pl-8 py-2 mt-2 text-teal tracking-widest">Menu</p>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap active" href="#">
+                            <div class="flex flex-wrap h-10 items-center icon-grey mr-4">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-xs text-teal">Recent Notes</p>
+                                <p class="mb-0 text-grey">Shortcuts</p>
+                            </div>
+                        </a>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap" href="#">
+                            <div class="flex flex-wrap h-10 items-center icon-grey mr-4">
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-xs text-teal">Your Notebooks</p>
+                                <p class="mb-0 text-grey">Notebooks</p>
+                            </div>
+                        </a>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap" href="#">
+                            <div class="flex flex-wrap h-10 items-center icon-grey mr-4">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-xs text-teal">Other Notes</p>
+                                <p class="mb-0 text-grey">Shared with me</p>
+                            </div>
+                        </a>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap" href="#">
+                            <div class="flex flex-wrap h-10 items-center icon-grey mr-4">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-xs text-teal">Calendar</p>
+                                <p class="mb-0 text-grey">Your Schedule</p>
+                            </div>
+                        </a>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap" href="#">
+                            <div class="flex flex-wrap h-10 items-center icon-grey mr-4">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-xs text-teal">Trash</p>
+                                <p class="mb-0 text-grey">Your Trash</p>
+                            </div>
+                        </a>
+                        <a class="block pr-4 pl-8 py-2 mt-2 flex flex-wrap" href="#">
+                            <div class="icon-teal mr-4">
+                                <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-grey uppercase">Upgrade Account</p>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="main-content h-full pt-4 md:pt-8 px-4 md:px-0">
+            <section class="flex flex-wrap">
+                <div class="md:w-3/5">
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <div class="pt-2 relative mx-auto">
+                                <input class="bg-white h-10 px-5 pl-10 rounded-lg shadow-md text-sm focus:outline-none"
+                                type="search" name="search" placeholder="Search">
+                                <button type="submit" class="absolute left-0 top-0 mt-5 ml-3">
+                                    <svg class="text-blue h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                                        viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                                        width="512px" height="512px">
+                                        <path
+                                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="md:mt-3">
+                                <p class="text-right text-teal"><i class="fa fa-bell" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="text-2xl text-grey font-semibold mt-12 mb-4">Notebooks</h1>
+                    <div class="lg:grid lg:grid-cols-4 lg:gap-5">
+                        <div class="notebooks bg-white pt-5 pb-2 px-4 shadow-xl mb-5 lg:mb-0">
+                            <p class="text-teal mb-4"><i class="fa fa-book" aria-hidden="true"></i></p>
+                            <p class="font-medium text-grey mb-1">Personal Diary</p>
+                            <p class="font-light text-sm text-grey">Notes | 20 Pages</p>
+                            <div class="grid grid-cols-2 mt-5">
+                                <div>
+                                    <p class="text-sm"><a href="#" class="text-blue">Read</a></p>
+                                </div>
+                                <div>
+                                    <div class="text-grey text-sm text-right">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notebooks bg-white pt-5 pb-2 px-4 shadow-xl mb-5 lg:mb-0">
+                            <p class="text-blue mb-4"><i class="fa fa-book" aria-hidden="true"></i></p>
+                            <p class="font-medium text-grey mb-1">Math Notes</p>
+                            <p class="font-light text-sm text-grey">Notes | 10 Pages</p>
+                            <p class="text-sm mt-5"><a href="#" class="text-blue">Read</a></p>
+                        </div>
+                        <div class="notebooks bg-white pt-5 pb-2 px-4 shadow-xl mb-5 lg:mb-0">
+                            <p class="text-green mb-4"><i class="fa fa-book" aria-hidden="true"></i></p>
+                            <p class="font-medium text-grey mb-1">Personal Diary</p>
+                            <p class="font-light text-sm text-grey">Excel | 2 Sheets</p>
+                            <div class="grid grid-cols-2 mt-5">
+                                <div>
+                                    <p class="text-sm"><a href="#" class="text-blue">Read</a></p>
+                                </div>
+                                <div>
+                                    <div class="text-grey text-sm text-right">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notebooks bg-white pt-5 pb-2 px-4 mb-5 lg:mb-0">
+                            <div class="notebooks__add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                            <p class="font-bold text-grey text-center mt-3 text-sm">Create New Notebook</p>
+                        </div>
+                    </div>
+                    <h1 class="text-2xl text-grey font-semibold mt-12 mb-4">Download Offline Notebooks</h1>
+                    <div class="text-center lg:grid lg:grid-cols-5 py-2 px-6 bg-white shadow-xl rounded-md">
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:h-12">
+                            <p class="font-semibold">Time Schedule</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:h-12">
+                            <p>Only me</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <p>07/11/20 | 14:30</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="lg:text-right">
+                            <i class="fa fa-download text-white bg-teal p-3 rounded-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="text-center lg:grid lg:grid-cols-5 py-2 px-6">
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:h-12">
+                            <p class="font-semibold">Science Project</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:h-12">
+                            <p>Shared</p>
+                        </div>
+                        <div class="text-center lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <p>30/09/20 | 10:32</p>
+                        </div>
+                        <div class="text-center lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="lg:text-right">
+                            <i class="fa fa-download text-white bg-teal p-3 rounded-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="text-center lg:grid lg:grid-cols-5 py-2 px-6">
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:h-12">
+                            <p class="font-semibold">Math Notes</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:h-12">
+                            <p>Only Me</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <p>28/10/20 | 08:33</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="lg:text-right">
+                            <i class="fa fa-download text-white bg-teal p-3 rounded-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="text-center lg:grid lg:grid-cols-5 py-2 px-6">
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:h-12">
+                            <p class="font-semibold">Personal Diary</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:h-12">
+                            <p>Only Me</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <p>07/11/20 | 18:00</p>
+                        </div>
+                        <div class="lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:h-12">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="lg:text-right">
+                            <i class="fa fa-download text-white bg-teal p-3 rounded-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/5 md:px-8">
+                    <div class="lg:flex lg:flex-wrap lg:justify-end hidden">
+                        <div class="md:1/2">
+                            <div class="md:mt-4 md:mr-4">
+                                <p class="text-right">Jane Doe</p>
+                            </div>
+                        </div>
+                        <div class="md:1/2">
+                            <div class="avatar ml-auto">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap bg-white rounded-lg shadow-lg px-3 pt-4 pb-6 mt-5">
+                        <div class="w-1/4">
+                            <p class="text-grey text-sm mt-3">Storage</p>
+                        </div>
+                        <div class="w-3/4 pl-3">
+                            <p class="text-lgrey text-xs text-right mt-1">50%</p>
+                            <div class="shadow w-full bg-lgrey rounded-lg">
+                                <div class="bg-blue text-xs leading-none py-1 text-center text-white rounded-l-md" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="text-2xl text-grey font-semibold mt-12 mb-4">Try it now</h1>
+                    <p class="text-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus nisl vel risus egestas pharetra. Cras urna magna, aliquet in augue vel, iaculis pharetra purus. </p>
+                    <div class="mt-5">
+                        <i class="fa fa-star text-teal" aria-hidden="true"></i>
+                        <i class="fa fa-star text-teal" aria-hidden="true"></i>
+                        <i class="fa fa-star text-teal" aria-hidden="true"></i>
+                        <i class="fa fa-star text-teal" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <span class="ml-4">1278 reviews</span>
+                    </div>
+                    <div class="mt-5">
+                        <button class="bg-teal text-white uppercase font-medium py-3 px-5 rounded-lg">Rate Us Now!</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* ============================================================================
+** Default Styles
+==============================================================================*/
+
+html * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: $font-primary;
+    background-color: $bg-lgrey;
+
+    @include desktopUp {
+        background-image: url('../images/bg-leaf.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom right;
+    }
+}
+
+p {
+    color: $text-grey;
+}
+
+
+.page-container {
+    @include tabletUp {
+        display: grid;
+        grid-template-columns: 21rem auto;
+    }
+}
+
+.avatar {
+    background-color: $white;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 6px $bg-lgrey;
+
+    .fa {
+        color: $text-blue;
+        font-size: 1.2rem
+    }
+}

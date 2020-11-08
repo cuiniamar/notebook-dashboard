@@ -1,0 +1,22 @@
+/* ============================================================================
+** Notebooks
+==============================================================================*/
+
+.notebooks {
+    border-radius: 10px;
+
+    &__add {
+        background-color: $bg-lgrey;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        .fa {
+            color: $text-grey;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "prod": "node-sass --output-style compressed --include-path scss assets/scss/ --output assets/css/",
+    "dev": "node-sass --output-style nested --source-map true --include-path scss assets/scss/ --output assets/css/",
+    "watch": "nodemon -e scss -x \"npm run dev\""
+  }
+}
